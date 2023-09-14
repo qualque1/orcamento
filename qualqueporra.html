@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Lista de Compras - Loja de Peças de Motos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script>
+        function calcularTotal(compras) {
+            var valor1 = parseFloat(document.compras.VALOR1.value) || 0;
+            var valor2 = parseFloat(document.compras.VALOR2.value) || 0;
+            var valor3 = parseFloat(document.compras.VALOR3.value) || 0;
+            var valor4 = parseFloat(document.compras.VALOR4.value) || 0;
+            var vezes = parseFloat(document.compras.VEZES.value) || 1;
+
+            var Total = valor1 + valor2 + valor3 + valor4;
+            var divi = Total / vezes;
+
+            document.compras.PARCELAS.value = divi.toFixed(2);
+            document.compras.Total.value = Total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <form name="compras">
+        <table border="5">
+            <tr bgcolor="lightblue">
+                <td width="80" align="center">Compras</td>
+                <td width="40">Vezes</td>
+                <td align="center">
+                    <input type="text" name="VEZES" value="1">
+                </td>
+                <td width="120" align="center">Total Parcelas:</td>
+                <td width="40" align="center">
+                    <input type="text" name="PARCELAS" value="" disabled>
+                </td>
+            </tr>
+            <tr bgcolor="lightblue">
+                <td width="80">Código</td>
+                <td width="40" align="center" colspan="3">Descrição</td>
+                <td align="center">Preço</td>
+            </tr>
+            <tr bgcolor="lightblue">
+                <td width="80" align="center">
+                    <input type="text" name="COD1" value="301">
+                </td>
+                <td width="40" align="center" colspan="3">
+                    <input type="text" name="DESC1" value="Pneu Dianteiro (120/70-17)">
+                </td>
+                <td align="center">
+                    <input type="text" name="VALOR1" value="89.99">
+                </td>
+            </tr>
+            <tr bgcolor="lightblue">
+                <td width="80" align="center">
+                    <input type="text" name="COD2" value="302">
+                </td>
+                <td width="40" align="center" colspan="3">
+                    <input type="text" name="DESC2" value="Óleo do Motor (1L)">
+                </td>
+                <td align="center">
+                    <input type="text" name="VALOR2" value="19.50">
+                </td>
+            </tr>
+            <tr bgcolor="lightblue">
+                <td width="80" align="center">
+                    <input type="text" name="COD3" value="303">
+                </td>
+                <td width="40" align="center" colspan="3">
+                    <input type="text" name="DESC3" value="Freio a Disco Traseiro">
+                </td>
+                <td align="center">
+                    <input type="text" name="VALOR3" value="49.99">
+                </td>
+            </tr>
+            <tr bgcolor="lightblue">
+                <td width="80" align="center">
+                    <input type="text" name="COD4" value="304">
+                </td>
+                <td width="40" align="center" colspan="3">
+                    <input type="text" name="DESC4" value="Kit de Corrente (520H)">
+                </td>
+                <td align="center">
+                    <input type="text" name="VALOR4" value="79.79">
+                </td>
+            </tr>
+            <tr>
+                <td width="120" align="center">Total</td>
+                <td width="40" align="center">
+                    <input type="text" name="Total" value="" disabled>
+                </td>
+            </tr>
+            <tr bgcolor="lightblue">
+                <td width="80" align="center" colspan="5">
+                    <input type="button" name="botao" value="Calcular" onClick="calcularTotal(compras)">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
